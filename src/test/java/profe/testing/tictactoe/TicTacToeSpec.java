@@ -1,6 +1,7 @@
 package profe.testing.tictactoe;
 
 import org.junit.Before;
+import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -36,6 +37,17 @@ public class TicTacToeSpec {
 		exception.expect(RuntimeException.class);
 		ticTacToe.play(1,1);
 		ticTacToe.play(1,1);
+	}
+
+	@Test
+	public void givenBeginThenNextPlayerIsX() {
+		assertEquals(Valor.X, ticTacToe.nextPlayer());
+	}
+
+	@Test
+	public void whenXPlaysThenNextPlayerIsO() {
+		ticTacToe.play(1,1);
+		assertEquals(Valor.O, ticTacToe.nextPlayer());
 	}
 
 }
