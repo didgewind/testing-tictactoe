@@ -1,9 +1,11 @@
-package profe.testing.tictactoe.ui;
+package profe.testing.tictactoe;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import profe.testing.tictactoe.TicTacToe;
 
 public class TicTacToeSpec {
 
@@ -21,6 +23,19 @@ public class TicTacToeSpec {
 	public void whenXOutsideBoardThenRuntimeException() {
 		exception.expect(RuntimeException.class);
 		ticTacToe.play(5, 2);
+	}
+
+	@Test
+	public void whenYOutsideBoardThenRuntimeException() {
+		exception.expect(RuntimeException.class);
+		ticTacToe.play(2, 5);
+	}
+
+	@Test
+	public void whenOccupiedSpaceThenRuntimeException() {
+		exception.expect(RuntimeException.class);
+		ticTacToe.play(1,1);
+		ticTacToe.play(1,1);
 	}
 
 }
