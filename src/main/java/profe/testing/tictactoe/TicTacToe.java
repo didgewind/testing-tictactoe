@@ -18,7 +18,7 @@ public class TicTacToe {
 		}
 	}
 	
-	public void play(int x, int y) {
+	public Valor play(int x, int y) {
 		String errorMessage = "";
 		boolean bError = false;
 		if (xIsOutOfBounds(x)) {
@@ -33,10 +33,57 @@ public class TicTacToe {
 			throw new RuntimeException(errorMessage);
 		}
 		checkPlaceNotEmpty(x, y);
-		tablero[x-1][y-1] = Valor.X;
+		tablero[x-1][y-1] = nextPlayer();
+		if (theresWinner(x, y)) {
+			return nextPlayer();
+		}
 		lastPlayer = nextPlayer();
+		return Valor.EMPTY;
 	}
 
+	private boolean theresWinner(int x, int y) {
+		// checking vertical row from x
+		int numMatches = 0;
+		for (int i=0; i<3; i++) {
+			if (tablero[x-1][i] == nextPlayer()) {
+				numMatches++;
+			}
+		}
+		if (numMatches == 3) {
+			return true;
+		}
+		// checking horizontal row from y
+		numMatches = 0;
+		for (int i=0; i<3; i++) {
+			if (tablero[i][y-1] == nextPlayer()) {
+				numMatches++;
+			}
+		}
+		if (numMatches == 3) {
+			return true;
+		}
+		// checking diagonals
+		numMatches = 0;
+		for (int i=0; i<3; i++) {
+			if (tablero[i][i] == nextPlayer()) {
+				numMatches++;
+			}
+		}
+		if (numMatches == 3) {
+			return true;
+		}
+		numMatches = 0;
+		for (int i=0, j=2; i<3; i++, j--) {
+			if (tablero[i][j] == nextPlayer()) {
+				numMatches++;
+			}
+		}
+		if (numMatches == 3) {
+			return true;
+		}
+		return false;
+	}
+	
 	private boolean xIsOutOfBounds(int x) {
 		return x < 1 || x > 3;
 	}

@@ -49,5 +49,48 @@ public class TicTacToeSpec {
 		ticTacToe.play(1,1);
 		assertEquals(Valor.O, ticTacToe.nextPlayer());
 	}
+	
+	@Test
+	public void whenPlayThenNoWinner() {
+		assertEquals(Valor.EMPTY, ticTacToe.play(1, 1));
+	}
+
+	@Test
+	public void whenRowFullThenWinner() {
+		ticTacToe.play(1, 1);
+		ticTacToe.play(1, 3);
+		ticTacToe.play(1, 2);
+		ticTacToe.play(2, 3);
+		ticTacToe.play(2, 2);
+		assertEquals(Valor.O, ticTacToe.play(3, 3));
+	}
+
+	@Test
+	public void whenColumnFullThenWinner() {
+		ticTacToe.play(1, 1);
+		ticTacToe.play(2, 1);
+		ticTacToe.play(1, 2);
+		ticTacToe.play(3, 2);
+		assertEquals(Valor.X, ticTacToe.play(1, 3));
+	}
+
+	@Test
+	public void whenDiagonalBottomTopFullThenWinner() {
+		ticTacToe.play(1, 1);
+		ticTacToe.play(2, 1);
+		ticTacToe.play(2, 2);
+		ticTacToe.play(3, 2);
+		assertEquals(Valor.X, ticTacToe.play(3, 3));
+	}
+
+	@Test
+	public void whenDiagonalTopBottomFullThenWinner() {
+		ticTacToe.play(1, 1);
+		ticTacToe.play(1, 3);
+		ticTacToe.play(1, 2);
+		ticTacToe.play(2, 2);
+		ticTacToe.play(3, 3);
+		assertEquals(Valor.O, ticTacToe.play(3, 1));
+	}
 
 }
