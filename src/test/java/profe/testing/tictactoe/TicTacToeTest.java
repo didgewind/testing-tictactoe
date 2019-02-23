@@ -1,42 +1,34 @@
 package profe.testing.tictactoe;
 
-import org.junit.Before;
-import static org.junit.Assert.*;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import profe.testing.tictactoe.TicTacToe;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class TicTacToeSpec {
-
-	@Rule
-	public ExpectedException exception = ExpectedException.none();
+class TicTacToeTest {
 
 	private TicTacToe ticTacToe;
 
-	@Before
+	@BeforeEach
 	public final void before() {
 		ticTacToe = new TicTacToe();
 	}
 
 	@Test
 	public void whenXOutsideBoardThenRuntimeException() {
-		exception.expect(RuntimeException.class);
-		ticTacToe.play(5, 2);
+		assertThrows(RuntimeException.class, () -> ticTacToe.play(5, 2));
 	}
-
+	
 	@Test
 	public void whenYOutsideBoardThenRuntimeException() {
-		exception.expect(RuntimeException.class);
-		ticTacToe.play(2, 5);
+		assertThrows(RuntimeException.class, () -> ticTacToe.play(2, 5));
 	}
 
 	@Test
 	public void whenOccupiedSpaceThenRuntimeException() {
-		exception.expect(RuntimeException.class);
 		ticTacToe.play(1, 1);
-		ticTacToe.play(1, 1);
+		assertThrows(RuntimeException.class, () -> ticTacToe.play(1, 1));
 	}
 
 	@Test
@@ -106,4 +98,5 @@ public class TicTacToeSpec {
 		Valor actual = ticTacToe.play(3, 2);
 		assertEquals(Valor.EMPATE, actual);
 	}
+	
 }
