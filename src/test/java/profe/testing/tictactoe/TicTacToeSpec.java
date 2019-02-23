@@ -35,8 +35,8 @@ public class TicTacToeSpec {
 	@Test
 	public void whenOccupiedSpaceThenRuntimeException() {
 		exception.expect(RuntimeException.class);
-		ticTacToe.play(1,1);
-		ticTacToe.play(1,1);
+		ticTacToe.play(1, 1);
+		ticTacToe.play(1, 1);
 	}
 
 	@Test
@@ -46,10 +46,10 @@ public class TicTacToeSpec {
 
 	@Test
 	public void whenXPlaysThenNextPlayerIsO() {
-		ticTacToe.play(1,1);
+		ticTacToe.play(1, 1);
 		assertEquals(Valor.O, ticTacToe.nextPlayer());
 	}
-	
+
 	@Test
 	public void whenPlayThenNoWinner() {
 		assertEquals(Valor.EMPTY, ticTacToe.play(1, 1));
@@ -93,4 +93,17 @@ public class TicTacToeSpec {
 		assertEquals(Valor.O, ticTacToe.play(3, 1));
 	}
 
+	@Test
+	public void whenAllBoxesAreFilledThenDraw() {
+		ticTacToe.play(1, 1);
+		ticTacToe.play(1, 2);
+		ticTacToe.play(1, 3);
+		ticTacToe.play(2, 1);
+		ticTacToe.play(2, 3);
+		ticTacToe.play(2, 2);
+		ticTacToe.play(3, 1);
+		ticTacToe.play(3, 3);
+		Valor actual = ticTacToe.play(3, 2);
+		assertEquals(Valor.EMPATE, actual);
+	}
 }

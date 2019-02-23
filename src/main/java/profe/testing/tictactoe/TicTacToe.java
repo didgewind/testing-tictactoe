@@ -38,7 +38,18 @@ public class TicTacToe {
 			return nextPlayer();
 		}
 		lastPlayer = nextPlayer();
-		return Valor.EMPTY;
+		return isDraw() ? Valor.EMPATE: Valor.EMPTY;
+	}
+	
+	private boolean isDraw() {
+		for (int i=0; i<3; i++) {
+			for (int j=0; j<3; j++) {
+				if (tablero[i][j] == Valor.EMPTY) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	private boolean theresWinner(int x, int y) {

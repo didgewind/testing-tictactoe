@@ -1,5 +1,5 @@
 package profe.testing.tictactoe;
 
 public enum Valor {
-	X, O, EMPTY
+	X, O, EMPTY, EMPATE
 }
