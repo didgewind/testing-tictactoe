@@ -4,6 +4,11 @@ public class TicTacToe {
 	
 	private Valor[][] tablero = new Valor[3][3];
 	private Valor lastPlayer = Valor.O;
+	private TicTacToeDAO dao;
+
+	public void setDao(TicTacToeDAO dao) {
+		this.dao = dao;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -34,6 +39,7 @@ public class TicTacToe {
 		}
 		checkPlaceNotEmpty(x, y);
 		tablero[x-1][y-1] = nextPlayer();
+		dao.saveMove(new TicTacToeMove(1, x-1, y-1, nextPlayer()));
 		if (theresWinner(x, y)) {
 			return nextPlayer();
 		}

@@ -1,18 +1,27 @@
 package profe.testing.tictactoe;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.*;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class TicTacToeTest {
 
+	@InjectMocks
 	private TicTacToe ticTacToe;
+	
+	@Mock
+	private TicTacToeDAO dao;
 
 	@BeforeEach
 	public final void before() {
-		ticTacToe = new TicTacToe();
+		
 	}
 
 	@Test
@@ -97,6 +106,12 @@ class TicTacToeTest {
 		ticTacToe.play(3, 3);
 		Valor actual = ticTacToe.play(3, 2);
 		assertEquals(Valor.EMPATE, actual);
+	}
+	
+	@Test
+	public void whenPlaySaveMoveIsInvoked() {
+		ticTacToe.play(1, 1);
+		verify(dao, times(1)).saveMove(any(TicTacToeMove.class));
 	}
 	
 }
