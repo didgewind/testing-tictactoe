@@ -29,8 +29,9 @@ public class TicTacToeDAOTest {
 	@Test
 	public void whenSaveMoveReturnMoveWithMoveNumber() {
 		TicTacToeMove moveExpected = new TicTacToeMove(1, 1, 1, Valor.X);
+		TicTacToeMove move = new TicTacToeMove(0, 1, 1, Valor.X);
 		doReturn(moveExpected).when(dao).saveMove(any(TicTacToeMove.class));
-		assertEquals(moveExpected, dao.saveMove(moveExpected));
+		assertEquals(move, dao.saveMove(move));
 	}
 	
 }
