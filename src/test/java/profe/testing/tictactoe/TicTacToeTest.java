@@ -21,7 +21,9 @@ class TicTacToeTest {
 
 	@BeforeEach
 	public final void before() {
-		
+/*		ticTacToe = new TicTacToe();
+		dao = new TicTacToeDAOMem();
+		ticTacToe.setDao(dao);*/
 	}
 
 	@Test

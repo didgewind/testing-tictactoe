@@ -64,6 +64,10 @@ public class TicTacToeMove implements Serializable {
 			return false;
 		return true;
 	}
+
+	public void setMoveNumber(int moveNumber) {
+		this.moveNumber = moveNumber;
+	}
 	
 	
 

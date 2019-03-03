@@ -6,4 +6,6 @@ public interface TicTacToeDAO {
 	
 	TicTacToeMove saveMove(TicTacToeMove move);
 	
+	TicTacToeMove getMove(int moveNumber);
+	
 }

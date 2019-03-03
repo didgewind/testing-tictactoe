@@ -3,21 +3,28 @@ package profe.testing.tictactoe;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class TicTacToeDAOTest {
+public class TicTacToeIntgTest {
 
-	private TicTacToeDAO dao;
+	@InjectMocks
+	private TicTacToe ticTacToe;
 	
-	@BeforeEach
-	public final void init() {
-		dao = mock(TicTacToeDAO.class);
+	@Spy
+	private TicTacToeDAO dao = new TicTacToeDAOMem();
+	
+	@Test
+	public void whenPlaySaveMoveIsInvoked() {
+		ticTacToe.play(1, 1);
+		verify(dao, times(1)).saveMove(any(TicTacToeMove.class));
 	}
 	
 	@Test
@@ -25,14 +32,6 @@ public class TicTacToeDAOTest {
 		assertEquals(false, dao.isEmpty());
 		doReturn(true).when(dao).isEmpty();
 		assertEquals(true, dao.isEmpty());
-	}
-	
-	@Test
-	public void whenSaveMoveReturnMoveWithMoveNumber() {
-		TicTacToeMove moveExpected = new TicTacToeMove(1, 1, 1, Valor.X);
-		TicTacToeMove move = new TicTacToeMove(0, 1, 1, Valor.X);
-		doReturn(moveExpected).when(dao).saveMove(any(TicTacToeMove.class));
-		assertEquals(move, dao.saveMove(move));
 	}
 	
 }
