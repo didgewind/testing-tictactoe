@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <movimientos numMovimiento="1" x="1" y="1" player="X"/>
+  <movimientos numMovimiento="2" x="1" y="2" player="O"/>
+  <movimientos numMovimiento="3" x="1" y="3" player="X"/>
+</dataset>

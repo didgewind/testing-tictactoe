@@ -1,0 +1,17 @@
+drop database if exists tictactoe;
+
+create database if not exists tictactoe;
+use tictactoe;
+
+## CREATES ##
+
+# Tablas de entidades
+
+CREATE TABLE IF NOT EXISTS movimientos 
+(numMovimiento INTEGER, 
+x INTEGER,
+y INTEGER, 
+player CHAR, 
+primary key (numMovimiento));
+
+grant all on tictactoe.* to maza@localhost identified by 'maza';
