@@ -12,6 +12,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import profe.testing.tictactoe.daos.TicTacToeDAO;
+import profe.testing.tictactoe.daos.TicTacToeDAOMem;
+import profe.testing.tictactoe.model.TicTacToeMove;
+import profe.testing.tictactoe.negocio.TicTacToe;
+
 @ExtendWith(MockitoExtension.class)
 public class TicTacToeIntgTest {
 

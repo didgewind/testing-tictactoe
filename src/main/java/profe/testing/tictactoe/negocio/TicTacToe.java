@@ -1,4 +1,8 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.negocio;
+
+import profe.testing.tictactoe.daos.TicTacToeDAO;
+import profe.testing.tictactoe.model.TicTacToeMove;
+import profe.testing.tictactoe.model.Valor;
 
 public class TicTacToe {
 	

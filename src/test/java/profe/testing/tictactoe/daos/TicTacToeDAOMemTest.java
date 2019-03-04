@@ -1,9 +1,14 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.daos;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import profe.testing.tictactoe.daos.TicTacToeDAO;
+import profe.testing.tictactoe.daos.TicTacToeDAOMem;
+import profe.testing.tictactoe.model.TicTacToeMove;
+import profe.testing.tictactoe.model.Valor;
 
 public class TicTacToeDAOMemTest {
 

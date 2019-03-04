@@ -1,4 +1,6 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.daos;
+
+import profe.testing.tictactoe.model.TicTacToeMove;
 
 public interface TicTacToeDAO {
 

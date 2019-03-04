@@ -1,7 +1,9 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.daos;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import profe.testing.tictactoe.model.TicTacToeMove;
 
 public class TicTacToeDAOMem implements TicTacToeDAO {
 

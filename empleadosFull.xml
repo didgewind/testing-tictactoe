@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <empleados cif="21094387T" nombre="Juan" apellidos="González" edad="40"/>
+  <empleados cif="23948745F" nombre="Lucille" apellidos="King" edad="25"/>
+  <empleados cif="34334789H" nombre="Antonio" apellidos="Martín" edad="23"/>
+  <empleados cif="40948574G" nombre="Neo" apellidos="Preno" edad="12"/>
+</dataset>

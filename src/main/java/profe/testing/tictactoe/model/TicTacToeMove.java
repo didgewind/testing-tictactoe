@@ -1,4 +1,4 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.daos;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -9,6 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import profe.testing.tictactoe.daos.TicTacToeDAO;
+import profe.testing.tictactoe.model.TicTacToeMove;
+import profe.testing.tictactoe.model.Valor;
 
 @ExtendWith(MockitoExtension.class)
 public class TicTacToeDAOTest {

@@ -1,4 +1,4 @@
-package profe.testing.tictactoe;
+package profe.testing.tictactoe.negocio;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,6 +9,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import profe.testing.tictactoe.daos.TicTacToeDAO;
+import profe.testing.tictactoe.model.TicTacToeMove;
+import profe.testing.tictactoe.model.Valor;
+import profe.testing.tictactoe.negocio.TicTacToe;
 
 @ExtendWith(MockitoExtension.class)
 class TicTacToeTest {
